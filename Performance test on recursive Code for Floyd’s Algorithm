@@ -1,0 +1,50 @@
+import sys
+import timeit
+
+NO_PATH = sys.maxsize
+graph = [
+    [0, 7, NO_PATH, 8],
+    [NO_PATH, 0, 5, NO_PATH],
+    [NO_PATH, NO_PATH, 0, 2],
+    [NO_PATH, NO_PATH, NO_PATH, 0]
+]
+MAX_LENGTH = len(graph[0])
+
+
+def floyd_recursive(intermediate, start_node, end_node):
+    """
+    A recursive implementation of Floyd's algorithm
+    """
+    global graph
+
+    if start_node == MAX_LENGTH:
+        return
+
+    if intermediate == MAX_LENGTH:
+        return floyd_recursive(0, start_node + 1, end_node)
+
+    if end_node == MAX_LENGTH:
+        return floyd_recursive(intermediate + 1, start_node, 0)
+
+    if start_node == end_node:
+        graph[start_node][end_node] = 0
+    else:
+        graph[start_node][end_node] = min(
+            graph[start_node][end_node],
+            graph[start_node][intermediate] + graph[intermediate][end_node]
+        )
+
+    return floyd_recursive(intermediate, start_node, end_node + 1)
+
+
+def floyd():
+    """
+    A wrapper function to start Floyd's algorithm
+    """
+    floyd_recursive(0, 0, 0)
+    # print(graph)
+
+
+# Measure the execution time of floyd function
+execution_time = timeit.timeit("floyd()", globals = globals(), number = 1)
+print("Execution time:", execution_time, "seconds")
