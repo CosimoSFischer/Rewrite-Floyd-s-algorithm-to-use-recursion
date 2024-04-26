@@ -1,0 +1,13 @@
+Requirements:
+
+- JupyterLab - Version 4.0.9
+
+- Online Python: https://www.online-python.com/#google_vignette
+
+- PyCharm 2024.1 (Professional Edition)
+
+- PyNative: https://pynative.com/online-python-code-editor-to-execute-python-code/
+
+- PythonChecker: https://www.pythonchecker.com/
+
+- Visual Studio Code - Version 1.87.2
