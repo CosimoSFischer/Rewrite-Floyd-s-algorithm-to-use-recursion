@@ -35,12 +35,4 @@ def floyd_recursive(intermediate, start_node, end_node):
 
     return floyd_recursive(intermediate, start_node, end_node + 1)
 
-
-def floyd():
-    """
-    A wrapper function to start Floyd's algorithm
-    """
-    floyd_recursive(0, 0, 0)
-    print(graph)
-
 floyd()
