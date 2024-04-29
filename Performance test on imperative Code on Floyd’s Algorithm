@@ -31,7 +31,7 @@ def floyd(distance):
             + distance[intermediate][end_node])
 
     # Any value that has sys.maxsize has no path
-    # print(distance)  # Uncomment if you want to print the result
+    # print(distance)
 
 
 # Measure the execution time of floyd function
